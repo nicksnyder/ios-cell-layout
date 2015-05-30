@@ -6,19 +6,9 @@
 import UIKit
 
 class Label: UILabel {
-  override var bounds: CGRect {
-    willSet {
-      //preferredMaxLayoutWidth = newValue.width
-    }
-    didSet {
-      updatePreferredMaxLayoutWidth()
-      //setNeedsUpdateConstraints()
-    }
-  }
-  
-  override func updateConstraints() {
-    //updatePreferredMaxLayoutWidth()
-    super.updateConstraints()
+  override func layoutSubviews() {
+    updatePreferredMaxLayoutWidth()
+    super.layoutSubviews()
   }
   
   private func updatePreferredMaxLayoutWidth() {
@@ -27,9 +17,4 @@ class Label: UILabel {
       preferredMaxLayoutWidth = bounds.width
     }
   }
-  /*
-  override func layoutSubviews() {
-    self.preferredMaxLayoutWidth = self.bounds.width
-    super.layoutSubviews()
-  }*/
 }

@@ -6,8 +6,8 @@
 import UIKit
 
 class ContentTableCell: UITableViewCell {
-  @IBOutlet private var titleLabel: UILabel!
-  @IBOutlet private var bodyLabel: UILabel!
+  @IBOutlet private var titleLabel: Label!
+  @IBOutlet private var bodyLabel: Label!
   
   private static let nibName = "ContentTableCell"
   

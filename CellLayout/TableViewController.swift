@@ -8,7 +8,7 @@ import UIKit
 class TableViewController: UITableViewController {
 
   static let singleLine = "Single line Single line"
-  static let doubleLine = "Double line Double line Double line Double line two"
+  static let doubleLine = "Double line Double line Double line Double line ggg"
   static let trippleLine = "Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line "
   
   let contents = [
@@ -28,24 +28,39 @@ class TableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     ContentTableCell.registerForTableView(tableView)
-    tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    //tableView.estimatedRowHeight = 50 // Not necessary, but iOS 8 seems to do FIVE(!) layout passes without it
+    tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+  }
+  
+  var cellHeights: [Int: CGFloat] = [:]
+  
+  private func verifyCellHeight(height: CGFloat, indexPath: NSIndexPath) {
+    // Ensure that heights of cells never change.
+    if let expectedHeight = cellHeights[indexPath.item] {
+      assert(height == expectedHeight, "cell \(indexPath.item) was \(expectedHeight) now \(height)")
+    } else {
+      cellHeights[indexPath.item] = height
+    }
   }
 }
 
 extension TableViewController: UITableViewDelegate {
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     let content = contents[indexPath.item]
-    let h = ContentTableCell.sharedCell.bind(content).heightForWidth(tableView.bounds.width)
-    NSLog("heightForRowAtIndexPath \(indexPath.item) height \(h)")
-    return h
+    let height = ContentTableCell.sharedCell.bind(content).heightForWidth(tableView.bounds.width)
+    NSLog("heightForRowAtIndexPath \(indexPath.item) height \(height)")
+    verifyCellHeight(height, indexPath: indexPath)
+    return height
   }
   
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     //NSLog("willDisplayCell \(indexPath.item) \(cell.bounds)")
+    verifyCellHeight(cell.bounds.height, indexPath: indexPath)
   }
 
   override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     //NSLog("didEndDisplayingCell \(indexPath.item) \(cell.bounds)")
+    verifyCellHeight(cell.bounds.height, indexPath: indexPath)
   }
 }
 
