@@ -16,14 +16,14 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="u70-fE-8tM" customClass="Label" customModule="CellLayout" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="134" height="24.5"/>
-                        <color key="backgroundColor" red="1" green="0.06223992602021633" blue="0.87224551524761718" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Body" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="134" translatesAutoresizingMaskIntoConstraints="NO" id="vwa-hO-rfa" customClass="Label" customModule="CellLayout" customModuleProvider="target">
-                        <rect key="frame" x="8" y="42.5" width="134" height="16"/>
-                        <color key="backgroundColor" red="1" green="0.062239926020000003" blue="0.87224551520000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="8" y="32.5" width="134" height="16"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                     <constraint firstItem="u70-fE-8tM" firstAttribute="leading" secondItem="adG-7B-VxO" secondAttribute="leadingMargin" id="ch7-MV-18i"/>
                     <constraint firstItem="vwa-hO-rfa" firstAttribute="trailing" secondItem="u70-fE-8tM" secondAttribute="trailing" id="hIW-ET-pG9"/>
                     <constraint firstItem="vwa-hO-rfa" firstAttribute="leading" secondItem="u70-fE-8tM" secondAttribute="leading" id="l4N-wm-cOH"/>
-                    <constraint firstItem="vwa-hO-rfa" firstAttribute="top" secondItem="u70-fE-8tM" secondAttribute="bottom" constant="10" id="wcl-4e-ODw"/>
+                    <constraint firstItem="vwa-hO-rfa" firstAttribute="top" secondItem="u70-fE-8tM" secondAttribute="bottom" id="wcl-4e-ODw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

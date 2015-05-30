@@ -8,8 +8,8 @@ import UIKit
 class TableViewController: UITableViewController {
 
   static let singleLine = "Single line Single line"
-  static let doubleLine = "Double line Double line Double line Double line ggg"
-  static let trippleLine = "Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line Tripple line "
+  static let doubleLine = "Double line Double line Double line Double line ggggg"
+  static let trippleLine = "overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow "
   
   let contents = [
     Content(title: singleLine, body: singleLine),
