@@ -10,6 +10,7 @@ class TableViewController: UITableViewController {
   static let singleLine = "Single line Single line"
   static let doubleLine = "Double line Double line Double line Double line ggggg"
   static let trippleLine = "overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow "
+  //static let trippleLine = "overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow" // for testing iPad iOS 8
   
   let contents = [
     Content(title: singleLine, body: singleLine),
@@ -47,7 +48,7 @@ class TableViewController: UITableViewController {
 extension TableViewController: UITableViewDelegate {
   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     let content = contents[indexPath.item]
-    let height = ContentTableCell.sharedCell.bind(content).heightForWidth(tableView.bounds.width)
+    let height = ContentTableCell.sharedCell.bind(content).heightInTableView(tableView)
     NSLog("heightForRowAtIndexPath \(indexPath.item) height \(height)")
     verifyCellHeight(height, indexPath: indexPath)
     return height
