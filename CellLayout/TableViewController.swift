@@ -20,7 +20,7 @@ class TableViewController: UITableViewController {
     Content(title: doubleLine, body: singleLine),
     Content(title: doubleLine, body: doubleLine),
     Content(title: doubleLine, body: trippleLine),
-    
+
     Content(title: trippleLine, body: singleLine),
     Content(title: trippleLine, body: doubleLine),
     Content(title: trippleLine, body: trippleLine),
@@ -29,53 +29,39 @@ class TableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     ContentTableCell.registerForTableView(tableView)
-    //tableView.estimatedRowHeight = 50 // Not necessary, but iOS 8 seems to do FIVE(!) layout passes without it
     tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+    
+    // It is necessary to provide an estimated row height for automatic table cell sizing to work in iOS 8+
+    tableView.estimatedRowHeight = 100
+    
+    // This isn't strictly necessary since this is the default value, but it is important to not specify a row height
+    // for automatic sizing to work.
+    tableView.rowHeight = UITableViewAutomaticDimension
   }
   
-  var cellHeights: [Int: CGFloat] = [:]
-  
-  private func verifyCellHeight(height: CGFloat, indexPath: NSIndexPath) {
-    // Ensure that heights of cells never change.
-    if let expectedHeight = cellHeights[indexPath.item] {
-      assert(height == expectedHeight, "cell \(indexPath.item) was \(expectedHeight) now \(height)")
-    } else {
-      cellHeights[indexPath.item] = height
-    }
-  }
-}
-
-extension TableViewController: UITableViewDelegate {
-  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    let content = contents[indexPath.item]
-    let height = ContentTableCell.sharedCell.bind(content).heightInTableView(tableView)
-    NSLog("heightForRowAtIndexPath \(indexPath.item) height \(height)")
-    verifyCellHeight(height, indexPath: indexPath)
-    return height
+  // MARK - UITableViewDelegate
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let cell = tableView.cellForRowAtIndexPath(indexPath)
+    NSLog("break here for debugging")
+    // [view _autolayoutTrace]
+    // hasAmbiguousLayout
+    // exerciseAmbiguityInLayout
   }
   
-  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    //NSLog("willDisplayCell \(indexPath.item) \(cell.bounds)")
-    verifyCellHeight(cell.bounds.height, indexPath: indexPath)
-  }
-
-  override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    //NSLog("didEndDisplayingCell \(indexPath.item) \(cell.bounds)")
-    verifyCellHeight(cell.bounds.height, indexPath: indexPath)
-  }
-}
-
-extension TableViewController: UITableViewDataSource {
+  // MARK - UITableViewDataSource
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    NSLog("numberOfRowsInSection \(section)")
     return contents.count;
   }
-
+  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     NSLog("cellForRowAtIndexPath \(indexPath.item)")
     let content = contents[indexPath.item]
     let cell = ContentTableCell.dequeueForTableView(tableView, indexPath: indexPath)
     cell.bind(content)
+    if (!UIDevice.hasMinimumSystemVersion("9.0")) {
+      // There is a bug in iOS 8 automatic cell height that causes layout to be incorrect in certain cases.
+      cell.layoutIfNeeded()
+    }
     return cell
   }
 }

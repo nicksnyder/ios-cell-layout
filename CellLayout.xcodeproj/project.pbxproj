@@ -13,7 +13,7 @@
 		0B94A2881B193651005B33E0 /* CellLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94A2871B193651005B33E0 /* CellLayoutTests.swift */; };
 		0B94A2921B1938EF005B33E0 /* ContentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B94A2911B1938EF005B33E0 /* ContentTableCell.xib */; };
 		0B94A2941B193908005B33E0 /* ContentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94A2931B193908005B33E0 /* ContentTableCell.swift */; };
-		0B94A2961B19479D005B33E0 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94A2951B19479D005B33E0 /* Label.swift */; };
+		0BFA3D5E1B2B736500A30556 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA3D5D1B2B736500A30556 /* UIDeviceExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		0B94A2871B193651005B33E0 /* CellLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLayoutTests.swift; sourceTree = "<group>"; };
 		0B94A2911B1938EF005B33E0 /* ContentTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentTableCell.xib; sourceTree = "<group>"; };
 		0B94A2931B193908005B33E0 /* ContentTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableCell.swift; sourceTree = "<group>"; };
-		0B94A2951B19479D005B33E0 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		0BFA3D5D1B2B736500A30556 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 				0B94A2781B193651005B33E0 /* Images.xcassets */,
 				0B94A26F1B193651005B33E0 /* Supporting Files */,
 				0B94A2731B193651005B33E0 /* TableViewController.swift */,
-				0B94A2951B19479D005B33E0 /* Label.swift */,
+				0BFA3D5D1B2B736500A30556 /* UIDeviceExtension.swift */,
 			);
 			path = CellLayout;
 			sourceTree = "<group>";
@@ -214,9 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFA3D5E1B2B736500A30556 /* UIDeviceExtension.swift in Sources */,
 				0B94A2941B193908005B33E0 /* ContentTableCell.swift in Sources */,
 				0B94A2741B193651005B33E0 /* TableViewController.swift in Sources */,
-				0B94A2961B19479D005B33E0 /* Label.swift in Sources */,
 				0B94A2721B193651005B33E0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -315,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,7 +329,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CellLayout/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -341,7 +340,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CellLayout/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
