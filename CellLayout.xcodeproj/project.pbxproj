@@ -13,6 +13,9 @@
 		0B94A2881B193651005B33E0 /* CellLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94A2871B193651005B33E0 /* CellLayoutTests.swift */; };
 		0B94A2921B1938EF005B33E0 /* ContentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B94A2911B1938EF005B33E0 /* ContentTableCell.xib */; };
 		0B94A2941B193908005B33E0 /* ContentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94A2931B193908005B33E0 /* ContentTableCell.swift */; };
+		0BE5CE761B2B963000242C99 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5CE751B2B963000242C99 /* Label.swift */; };
+		0BE5CE781B2BBF1800242C99 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5CE771B2BBF1800242C99 /* UITableViewCellExtension.swift */; };
+		0BE5CE7A1B2BC51500242C99 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5CE791B2BC51500242C99 /* UITableViewExtension.swift */; };
 		0BFA3D5E1B2B736500A30556 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA3D5D1B2B736500A30556 /* UIDeviceExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		0B94A2871B193651005B33E0 /* CellLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLayoutTests.swift; sourceTree = "<group>"; };
 		0B94A2911B1938EF005B33E0 /* ContentTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentTableCell.xib; sourceTree = "<group>"; };
 		0B94A2931B193908005B33E0 /* ContentTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableCell.swift; sourceTree = "<group>"; };
+		0BE5CE751B2B963000242C99 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		0BE5CE771B2BBF1800242C99 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
+		0BE5CE791B2BC51500242C99 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		0BFA3D5D1B2B736500A30556 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,10 +88,12 @@
 				0B94A2711B193651005B33E0 /* AppDelegate.swift */,
 				0B94A2931B193908005B33E0 /* ContentTableCell.swift */,
 				0B94A2911B1938EF005B33E0 /* ContentTableCell.xib */,
-				0B94A2781B193651005B33E0 /* Images.xcassets */,
+				0BE5CE751B2B963000242C99 /* Label.swift */,
 				0B94A26F1B193651005B33E0 /* Supporting Files */,
 				0B94A2731B193651005B33E0 /* TableViewController.swift */,
 				0BFA3D5D1B2B736500A30556 /* UIDeviceExtension.swift */,
+				0BE5CE771B2BBF1800242C99 /* UITableViewCellExtension.swift */,
+				0BE5CE791B2BC51500242C99 /* UITableViewExtension.swift */,
 			);
 			path = CellLayout;
 			sourceTree = "<group>";
@@ -93,6 +101,7 @@
 		0B94A26F1B193651005B33E0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0B94A2781B193651005B33E0 /* Images.xcassets */,
 				0B94A2701B193651005B33E0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -217,7 +226,10 @@
 				0BFA3D5E1B2B736500A30556 /* UIDeviceExtension.swift in Sources */,
 				0B94A2941B193908005B33E0 /* ContentTableCell.swift in Sources */,
 				0B94A2741B193651005B33E0 /* TableViewController.swift in Sources */,
+				0BE5CE781B2BBF1800242C99 /* UITableViewCellExtension.swift in Sources */,
+				0BE5CE761B2B963000242C99 /* Label.swift in Sources */,
 				0B94A2721B193651005B33E0 /* AppDelegate.swift in Sources */,
+				0BE5CE7A1B2BC51500242C99 /* UITableViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -315,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

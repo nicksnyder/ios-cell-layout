@@ -11,6 +11,8 @@ class ContentTableCell: UITableViewCell {
   
   private static let nibName = "ContentTableCell"
   
+  static let sharedCell: ContentTableCell = NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil).first as! ContentTableCell
+  
   class func registerForTableView(tableView: UITableView) {
     tableView.registerNib(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: nibName)
   }

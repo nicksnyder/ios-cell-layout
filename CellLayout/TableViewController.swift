@@ -7,23 +7,42 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-  static let singleLine = "Single line Single line"
-  static let doubleLine = "Double line Double line Double line Double line ggggg"
-  static let trippleLine = "overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow "
-  //static let trippleLine = "overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow overflow" // for testing iPad iOS 8
+  static let oneLine = "one one one one one one one"
+  static let twoLines = "two two two two two two two two two two two two two two"
+  static let threeLines = "three three three three three three three three three three three three three three three"
   
-  let contents = [
-    Content(title: singleLine, body: singleLine),
-    Content(title: singleLine, body: doubleLine),
-    Content(title: singleLine, body: trippleLine),
-    
-    Content(title: doubleLine, body: singleLine),
-    Content(title: doubleLine, body: doubleLine),
-    Content(title: doubleLine, body: trippleLine),
+  static let twoLinesIpad = "two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad two ipad"
+  static let threeLinesIpad = "three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad three ipad"
 
-    Content(title: trippleLine, body: singleLine),
-    Content(title: trippleLine, body: doubleLine),
-    Content(title: trippleLine, body: trippleLine),
+  let contents = [
+    
+    // iPhone tests
+    
+    Content(title: oneLine, body: oneLine),
+    Content(title: oneLine, body: twoLines),
+    Content(title: oneLine, body: threeLines),
+    
+    Content(title: twoLines, body: oneLine),
+    Content(title: twoLines, body: twoLines),
+    Content(title: twoLines, body: threeLines),
+
+    Content(title: threeLines, body: oneLine),
+    Content(title: threeLines, body: twoLines),
+    Content(title: threeLines, body: threeLines),
+    
+    // iPad tests
+    
+    Content(title: oneLine, body: oneLine),
+    Content(title: oneLine, body: twoLinesIpad),
+    Content(title: oneLine, body: threeLinesIpad),
+    
+    Content(title: twoLinesIpad, body: oneLine),
+    Content(title: twoLinesIpad, body: twoLinesIpad),
+    Content(title: twoLinesIpad, body: threeLinesIpad),
+    
+    Content(title: threeLinesIpad, body: oneLine),
+    Content(title: threeLinesIpad, body: twoLinesIpad),
+    Content(title: threeLinesIpad, body: threeLinesIpad), 
   ]
   
   override func viewDidLoad() {
@@ -33,22 +52,10 @@ class TableViewController: UITableViewController {
     
     // It is necessary to provide an estimated row height for automatic table cell sizing to work in iOS 8+
     tableView.estimatedRowHeight = 100
-    
-    // This isn't strictly necessary since this is the default value, but it is important to not specify a row height
-    // for automatic sizing to work.
-    tableView.rowHeight = UITableViewAutomaticDimension
-  }
-  
-  // MARK - UITableViewDelegate
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let cell = tableView.cellForRowAtIndexPath(indexPath)
-    NSLog("break here for debugging")
-    // [view _autolayoutTrace]
-    // hasAmbiguousLayout
-    // exerciseAmbiguityInLayout
   }
   
   // MARK - UITableViewDataSource
+  
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return contents.count;
   }
@@ -58,11 +65,22 @@ class TableViewController: UITableViewController {
     let content = contents[indexPath.item]
     let cell = ContentTableCell.dequeueForTableView(tableView, indexPath: indexPath)
     cell.bind(content)
-    if (!UIDevice.hasMinimumSystemVersion("9.0")) {
+    if (UIDevice.hasMajorSystemVersion(8)) {
       // There is a bug in iOS 8 automatic cell height that causes layout to be incorrect in certain cases.
+      // This bug is fixed in iOS 9 (as of WWDC 2015 Xcode 7 beta build 7a120f).
       cell.layoutIfNeeded()
     }
     return cell
+  }
+  
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    if (UIDevice.hasMinimumSystemVersion("8.0")) {
+      return UITableViewAutomaticDimension
+    }
+    let content = contents[indexPath.item]
+    let height = ContentTableCell.sharedCell.bind(content).heightInTableView(tableView)
+    NSLog("heightForRowAtIndexPath \(indexPath.item) height \(height)")
+    return height
   }
 }
 
