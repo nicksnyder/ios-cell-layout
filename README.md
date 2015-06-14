@@ -2,6 +2,10 @@
 
 How to correcly compute dynamic UITableViewCell heights on iOS 7,8,9.
 
+- On iOS 7 heights are computed by manually running auto layout.
+- On iOS 8 heights are automatically computed by the table view with some workarounds for bugs in UIKit.
+- On iOS 9 heights are automatically computed by the table view.
+
 ## Requirements
 
 Xcode 6.3.2
